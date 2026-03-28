@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sparkles, Activity, ShieldCheck, Heart, CircleDollarSign, Target, CheckCircle2 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
@@ -8,6 +8,7 @@ export default function Landing() {
    const { user } = useAuth();
    const [loading, setLoading] = useState(false);
    const location = useLocation();
+   const navigate = useNavigate();
 
    useEffect(() => {
       if (location.hash) {
@@ -22,7 +23,7 @@ export default function Landing() {
 
    const handleSubscribe = async (planType) => {
       if (!user) {
-         window.location.href = '/login';
+         navigate('/login');
          return;
       }
 
