@@ -46,3 +46,4 @@ frontend/dist-ssr/
 # Backend specific
 backend/node_modules/
 backend/temp.txt
+deployment_guide.md
